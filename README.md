@@ -10,6 +10,11 @@ Site contains:
 
 - Button for password generation
 
+![Deployed site screenshot](./assets/images/Screen%20Shot%202022-11-06%20at%204.36.28%20PM.png)
+
+[Link to Deployed site](https://ivanfelipeescobar.github.io/Password-Generator/)
+
+
 ## Usage:
 
 1. Clicking generate password will display prompt asking for length of password. Must be a value between 8 - 128, otherwise an alert will display, and you will be re-prompted for the password length.
