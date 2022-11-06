@@ -26,29 +26,53 @@ function generatePassword() {
     alert(`Your password will have ${inputLength} characters`);
     
     //confirm boxes used to set character type preferences (numbers, special characters, upper case and lower case letters)
-  inputNumbers = (confirm(`Would you like to include numbers? select OK for YES` ));
-
+  inputNumbers = (confirm(`Would you like to include numbers? select OK for YES, CANCEL for NO` ));
+    //if-else statement used to indicate in alert box choice made
    if (inputNumbers){
   alert(`Numbers WILL be used in generated password`);
    }  else (alert(`Numbers will NOT be used in  generated password `));
 
-  inputSpecialCharacters = (confirm(`Would you like to include special characters? select OK for YES`));
-
+  inputSpecialCharacters = (confirm(`Would you like to include special characters? select OK for YES, CANCEL for NO`));
    if (inputSpecialCharacters){
   alert(`Special characters WILL be used in generated password`);
     }  else (alert(`Special Characters will NOT be used in  generated password `));
  
-  inputLowerCase = (confirm(`Would you like to include lower case leeters? select OK for YES` ));
+  inputLowerCase = (confirm(`Would you like to include lower case letters? select OK for YES, CANCEL for NO` ));
    if (inputLowerCase){
   alert(`lower case letters WILL be used in generated password`);
     }  else (alert(`Lower case letters will NOT be used in  generated password `));
 
 
-  inputUpperCase = (confirm(`Would you like to include upper case letter? select OK for YES`));
+  inputUpperCase = (confirm(`Would you like to include upper case letters? select OK for YES, CANCEL for NO`));
    if (inputUpperCase){
   alert(`Upper case letters WILL be used in generated password`);
     }  else (alert(`Upper case letters will NOT be used in  generated password `));
-    
+
+     //loop to invalidate not choosing an attribute, will loop until atleast one attribut has been chosen
+     while(inputNumbers === false && inputSpecialCharacters === false && inputLowerCase === false && inputSpecialCharacters === false){
+      alert(`You must select atleast one attribute in order to generate password. Try Again.`)
+      inputNumbers = (confirm(`Would you like to include numbers? select OK for YES, CANCEL for NO` ));
+     //if-else statement used to indicate in alert box choice made
+     if (inputNumbers){
+     alert(`Numbers WILL be used in generated password`);
+     }  else (alert(`Numbers will NOT be used in  generated password `));
+
+    inputSpecialCharacters = (confirm(`Would you like to include special characters? select OK for YES, CANCEL for NO`));
+     if (inputSpecialCharacters){
+     alert(`Special characters WILL be used in generated password`);
+     }  else (alert(`Special Characters will NOT be used in  generated password `));
+ 
+     inputLowerCase = (confirm(`Would you like to include lower case letters? select OK for YES, CANCEL for NO` ));
+     if (inputLowerCase){
+     alert(`lower case letters WILL be used in generated password`);
+     }  else (alert(`Lower case letters will NOT be used in  generated password `));
+
+
+    inputUpperCase = (confirm(`Would you like to include upper case letters? select OK for YES, CANCEL for NO`));
+     if (inputUpperCase){
+     alert(`Upper case letters WILL be used in generated password`);
+     }  else (alert(`Upper case letters will NOT be used in  generated password `));
+     }
 
  
  
@@ -56,7 +80,7 @@ function generatePassword() {
  
  var characterTypes = []
 
- //if statements using gathered responses to compile character types for customization.
+ //if statements using gathered responses to compile character types for customization. concat will add the cooresponding array, if they were selected on confirm boxes. each succesive if statement will compile (or not) each corresponding array
 if (inputNumbers){
   characterTypes = characterTypes.concat(numbers)
    }  
@@ -71,10 +95,13 @@ if (inputUpperCase){
   characterTypes = characterTypes.concat(upperCase)
     }  
    console.log(characterTypes);
-        
+    
+   //custom generated password that will be built based on selected attributes
    var customPassword = ``
-
+// loop will run until input length has been met
    for (var i = 0; i < inputLength; i++) {
+                          // math random wil select a random decimal value less than 1, math floor rounds down to largest int <= given number
+                          // by multipylying it by array's length it will keep the random selected number to within the selected arrays selections
     customPassword = customPassword+ characterTypes[Math.floor(Math.random() * characterTypes.length)];
     console.log(customPassword)
    }
