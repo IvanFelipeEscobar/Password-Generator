@@ -49,7 +49,7 @@ function generatePassword() {
     }  else (alert(`Upper case letters will NOT be used in  generated password `));
 
      //loop to invalidate not choosing an attribute, will loop until atleast one attribut has been chosen
-     while(inputNumbers === false && inputSpecialCharacters === false && inputLowerCase === false && inputSpecialCharacters === false){
+     while(inputNumbers === false && inputSpecialCharacters === false && inputLowerCase === false && inputUpperCase === false){
       alert(`You must select atleast one attribute in order to generate password. Try Again.`)
       inputNumbers = (confirm(`Would you like to include numbers? select OK for YES, CANCEL for NO` ));
      //if-else statement used to indicate in alert box choice made
